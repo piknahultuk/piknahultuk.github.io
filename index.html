@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kutluhan Kip — Designer & Developer</title>
+<meta name="description" content="Personal portfolio of Kutluhan Kip — Computer Engineering student, designer and developer based in Istanbul." />
+<meta name="author" content="Kutluhan Kip" />
+<meta property="og:title" content="Kutluhan Kip — Designer & Developer" />
+<meta property="og:description" content="Computer Engineering student, designer and developer based in Istanbul." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/1748237916548.jpeg" />
+<link rel="icon" type="image/jpeg" href="assets/1748237916548.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      oklch(97.2% 0.018 75);
+  --bg2:     oklch(94.5% 0.022 75);
+  --bg3:     oklch(91%   0.028 72);
+  --bg-dark: oklch(16%   0.030 55);
+  --ink:     oklch(16%   0.028 55);
+  --ink2:    oklch(40%   0.022 60);
+  --ink3:    oklch(60%   0.016 65);
+  --accent:  oklch(50%   0.14  155);
+  --accent2: oklch(70%   0.10  75);
+  --serif:   'Playfair Display', Georgia, serif;
+  --sans:    'DM Sans', Helvetica, sans-serif;
+  --r:       16px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV (floating pill, from index.html) ── */
+header.site-header {
+  position: fixed; top: 16px; left: 16px; right: 16px; z-index: 100;
+  display: flex; justify-content: center; pointer-events: none;
+}
+header.site-header nav {
+  pointer-events: auto;
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 8px; border-radius: 9999px;
+  border: 1px solid oklch(89% 0.025 72);
+  background: oklch(97.2% 0.018 75 / 0.82);
+  backdrop-filter: blur(20px);
+  font-size: 14px;
+  box-shadow: 0 1px 2px rgba(10,10,10,0.04), 0 8px 24px -12px rgba(10,10,10,0.08);
+}
+.nav-link {
+  padding: 0.55rem 1rem; border-radius: 9999px;
+  color: var(--ink); text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-link:hover { background: oklch(0% 0 0 / 0.04); }
+.nav-link.home { font-weight: 500; }
+.nav-cta {
+  margin-left: 4px;
+  padding: 6px 16px; border-radius: 9999px;
+  background: var(--ink); color: #fff;
+  font-weight: 500; text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: #1a1a1a; }
+
+/* ── SOCIAL SIDEBAR ── */
+.social-sidebar {
+  position: fixed; right: 36px; top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0;
+  z-index: 90;
+}
+.social-sidebar a {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px;
+  font-size: 13px; font-weight: 500; color: var(--ink3);
+  text-decoration: none; font-family: var(--sans);
+  transition: color 0.2s;
+}
+.social-sidebar a:hover { color: var(--ink); }
+.social-line {
+  width: 1px; height: 28px;
+  background: oklch(78% 0.022 68);
+  margin: 2px 0;
+}
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 120px 52px 80px;
+  max-width: 1100px; margin: 0 auto;
+  position: relative;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--bg3); border-radius: 100px;
+  padding: 6px 16px; font-size: 11px; font-weight: 500;
+  color: var(--ink2); letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 44px; width: fit-content;
+}
+.hero-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+.hero-headline {
+  font-family: var(--serif);
+  font-size: clamp(52px, 6.5vw, 88px);
+  font-weight: 500; line-height: 1.06;
+  letter-spacing: -0.03em;
+}
+.hero-headline .muted { color: var(--ink3); }
+.hero-line { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+
+/* Inline floating capsules */
+.float-capsule {
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 100px; overflow: hidden;
+  vertical-align: middle; flex-shrink: 0;
+  position: relative; top: -2px;
+  border: 2px solid oklch(89% 0.025 72);
+  box-shadow: 0 2px 6px -2px rgba(10,10,10,0.06);
+  transition: transform 0.45s cubic-bezier(.2,.7,.2,1),
+              box-shadow 0.45s cubic-bezier(.2,.7,.2,1),
+              border-color 0.3s ease;
+  will-change: transform;
+  animation: capsule-float 6s ease-in-out infinite;
+}
+.float-capsule.avatar  { width: 96px;  height: 96px; border-radius: 50%; animation-delay: 0s; }
+.float-capsule.wide    { width: 120px; height: 72px; animation-delay: -2s; }
+.float-capsule.square  { width: 72px;  height: 72px; border-radius: 18px; animation-delay: -4s; }
+
+.float-capsule:hover {
+  transform: translateY(-18px) scale(1.12) rotate(-4deg);
+  box-shadow: 0 28px 48px -14px rgba(10,10,10,0.32),
+              0 6px 14px -6px rgba(10,10,10,0.18);
+  border-color: var(--ink);
+  animation-play-state: paused;
+  z-index: 5;
+}
+.float-capsule.wide:hover   { transform: translateY(-18px) scale(1.10) rotate(4deg); border-color: var(--ink3); }
+.float-capsule.square:hover { transform: translateY(-20px) scale(1.14) rotate(-7deg); border-color: var(--ink3); }
+
+.float-capsule svg { width: 100%; height: 100%; display: block; }
+.float-capsule svg, .float-capsule img { transition: transform 0.55s cubic-bezier(.2,.7,.2,1); }
+.float-capsule:hover img,
+.float-capsule:hover svg { transform: scale(1.12); }
+
+@keyframes capsule-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-6px) rotate(1deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .float-capsule { animation: none; transition: none; }
+  .float-capsule:hover { transform: none; }
+}
+
+/* Accent word */
+.hero-accent {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.hero-sub {
+  margin-top: 40px;
+  font-size: 17px; color: var(--ink2);
+  max-width: 500px; line-height: 1.75; font-weight: 300;
+}
+.hero-actions {
+  margin-top: 44px;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.btn-pill {
+  background: var(--ink); color: var(--bg);
+  padding: 14px 28px; border-radius: 100px;
+  font-size: 15px; font-weight: 500; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: opacity 0.2s, transform 0.2s;
+  border: none; cursor: pointer; font-family: var(--sans);
+}
+.btn-pill:hover { opacity: 0.82; transform: translateY(-2px); }
+.btn-outline {
+  background: transparent; color: var(--ink);
+  border: 1.5px solid oklch(82% 0.025 70);
+  padding: 13px 28px; border-radius: 100px;
+  font-size: 15px; font-weight: 500; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.btn-outline:hover { border-color: var(--ink); transform: translateY(-2px); }
+
+/* ── DIVIDER ── */
+.divider {
+  border: none; border-top: 1px solid oklch(88% 0.025 72);
+  margin: 0 52px;
+}
+
+/* ── SECTION BASE ── */
+.section-wrap {
+  max-width: 1100px; margin: 0 auto;
+  padding: 96px 52px;
+}
+.section-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 500; color: var(--ink3);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.section-label::before { content: '●'; font-size: 6px; }
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(30px, 3.8vw, 52px);
+  font-weight: 500; line-height: 1.1;
+  letter-spacing: -0.025em;
+  max-width: 600px;
+}
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px;
+  margin-top: 52px; align-items: start;
+}
+.about-text {
+  font-size: 16.5px; color: var(--ink2); line-height: 1.8; font-weight: 300;
+}
+.about-text strong { color: var(--ink); font-weight: 500; }
+.skills-group { margin-bottom: 26px; }
+.skills-group-label {
+  font-size: 11px; font-weight: 500; color: var(--ink3);
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px;
+}
+.skills-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.skill-tag {
+  background: var(--bg3); border-radius: 100px;
+  padding: 5px 14px; font-size: 13px; font-weight: 400;
+  color: var(--ink2); transition: background 0.2s, color 0.2s;
+  cursor: default;
+}
+.skill-tag:hover { background: var(--ink); color: var(--bg); }
+
+/* visual card inside about */
+.about-visual-card {
+  background: var(--bg2); border-radius: 20px;
+  padding: 28px; border: 1px solid oklch(88% 0.025 72);
+  margin-top: 32px;
+  display: flex; align-items: center; gap: 20px;
+}
+.about-avatar-ring {
+  width: 72px; height: 72px; border-radius: 50%;
+  border: 3px solid var(--bg3);
+  overflow: hidden; flex-shrink: 0;
+}
+.about-stat-row { display: flex; gap: 28px; margin-top: 4px; }
+.about-stat label { display: block; font-size: 10px; color: var(--ink3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2px; }
+.about-stat span { font-family: var(--serif); font-size: 22px; font-weight: 500; color: var(--ink); }
+
+/* ── EXPERIENCE ── */
+.exp-list { margin-top: 48px; display: flex; flex-direction: column; gap: 2px; }
+.exp-row {
+  display: grid; grid-template-columns: 1.2fr 1fr 1fr;
+  align-items: center; gap: 16px;
+  padding: 22px 24px; border-radius: var(--r);
+  background: var(--bg2); border: 1px solid transparent;
+  transition: background 0.2s, border-color 0.2s;
+}
+.exp-row:hover { background: var(--bg3); border-color: oklch(84% 0.027 70); }
+.exp-role { font-size: 15px; font-weight: 500; }
+.exp-company { font-size: 14px; color: var(--ink2); }
+.exp-period { font-size: 13px; color: var(--ink3); text-align: right; }
+.exp-desc {
+  margin-top: 24px; font-size: 14px; color: var(--ink3);
+  max-width: 680px; line-height: 1.75;
+  padding: 20px 24px; background: var(--bg2); border-radius: var(--r);
+}
+
+/* ── EDUCATION ── */
+.edu-list { margin-top: 48px; display: flex; flex-direction: column; gap: 2px; }
+.edu-row {
+  display: grid; grid-template-columns: 1.2fr 1fr 1fr;
+  align-items: center; gap: 16px;
+  padding: 22px 24px; border-radius: var(--r);
+  background: var(--bg2); transition: background 0.2s;
+}
+.edu-row:hover { background: var(--bg3); }
+.edu-degree { font-size: 15px; font-weight: 500; }
+.edu-school { font-size: 14px; color: var(--ink2); }
+.edu-period { font-size: 13px; color: var(--ink3); text-align: right; }
+
+/* ── PROJECTS ── */
+.projects-grid {
+  margin-top: 52px;
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.project-card {
+  background: var(--bg2); border-radius: 22px;
+  padding: 36px;
+  border: 1px solid oklch(88% 0.025 72);
+  transition: transform 0.28s, box-shadow 0.28s, border-color 0.28s;
+  cursor: default;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 60px oklch(16% 0.028 55 / 0.10);
+  border-color: oklch(80% 0.030 70);
+}
+.project-card-top {
+  display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 22px;
+}
+.project-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+}
+.project-status {
+  font-size: 11px; font-weight: 500; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--accent);
+  background: oklch(56% 0.14 45 / 0.10); border-radius: 100px;
+  padding: 4px 12px;
+}
+.project-title {
+  font-family: var(--serif); font-size: 27px; font-weight: 500;
+  letter-spacing: -0.02em; margin-bottom: 10px;
+}
+.project-desc {
+  font-size: 14.5px; color: var(--ink2); line-height: 1.7; font-weight: 300;
+  margin-bottom: 22px;
+}
+.project-tech-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+.tech-tag {
+  background: var(--bg3); border-radius: 6px;
+  padding: 4px 10px; font-size: 12px; color: var(--ink2); font-weight: 500;
+}
+.project-meta {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  padding-top: 22px; border-top: 1px solid oklch(87% 0.025 72);
+}
+.project-meta-item label {
+  display: block; font-size: 10px; color: var(--ink3);
+  text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 3px;
+}
+.project-meta-item span { font-size: 13px; font-weight: 500; color: var(--ink2); }
+
+.project-placeholder {
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center; min-height: 320px;
+  background: oklch(93% 0.022 72); border-style: dashed;
+  border-color: oklch(82% 0.028 70);
+}
+.project-placeholder p {
+  font-size: 14px; color: var(--ink3); text-align: center;
+  max-width: 200px; line-height: 1.6; margin-top: 12px;
+}
+
+/* ── CERTIFICATIONS ── */
+.cert-grid {
+  margin-top: 48px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+.cert-card {
+  background: var(--bg2); border-radius: var(--r);
+  padding: 26px 26px 22px;
+  border: 1px solid oklch(88% 0.025 72);
+  transition: transform 0.2s, border-color 0.2s;
+}
+.cert-card:hover { transform: translateY(-2px); border-color: oklch(78% 0.030 70); }
+.cert-year { font-size: 11px; font-weight: 500; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+.cert-title { font-family: var(--serif); font-size: 17px; font-weight: 500; line-height: 1.3; margin-bottom: 6px; }
+.cert-issuer { font-size: 13px; color: var(--ink3); line-height: 1.4; }
+
+/* ── CONTACT DARK ── */
+#contact-section {
+  background: var(--bg-dark);
+  margin: 0; padding: 0;
+}
+.contact-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 96px 52px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: start;
+}
+.contact-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 500;
+  color: oklch(55% 0.020 60);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.contact-label::before { content: '●'; font-size: 6px; }
+.contact-title {
+  font-family: var(--serif);
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 500; line-height: 1.1; letter-spacing: -0.025em;
+  color: var(--bg); margin-bottom: 20px;
+}
+.contact-sub {
+  font-size: 16px; color: oklch(62% 0.016 65);
+  line-height: 1.75; font-weight: 300; margin-bottom: 40px;
+}
+.contact-links { display: flex; flex-direction: column; gap: 10px; }
+.contact-link {
+  display: flex; align-items: center; gap: 14px;
+  color: oklch(68% 0.018 65); font-size: 14px;
+  text-decoration: none; transition: color 0.2s;
+  padding: 10px 0;
+  border-bottom: 1px solid oklch(24% 0.028 55);
+}
+.contact-link:hover { color: var(--bg); }
+.contact-link-label { font-size: 11px; color: oklch(45% 0.018 60); letter-spacing: 0.06em; text-transform: uppercase; display: block; margin-bottom: 1px; }
+.contact-link-val { font-size: 14px; font-weight: 500; }
+.contact-form { display: flex; flex-direction: column; gap: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 7px; }
+.form-label { font-size: 11px; color: oklch(50% 0.018 65); letter-spacing: 0.07em; text-transform: uppercase; }
+.form-input {
+  background: oklch(22% 0.025 55); border: 1px solid oklch(30% 0.025 55);
+  border-radius: 10px; padding: 14px 18px;
+  font-family: var(--sans); font-size: 15px; color: var(--bg);
+  outline: none; transition: border-color 0.2s; -webkit-appearance: none;
+}
+.form-input::placeholder { color: oklch(42% 0.018 60); }
+.form-input:focus { border-color: oklch(52% 0.025 65); }
+textarea.form-input { resize: vertical; min-height: 110px; }
+.form-submit {
+  background: var(--bg); color: var(--ink);
+  border: none; border-radius: 100px;
+  padding: 16px 32px; font-family: var(--sans);
+  font-size: 15px; font-weight: 500; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: opacity 0.2s, transform 0.2s; margin-top: 4px;
+}
+.form-submit:hover { opacity: 0.88; transform: translateY(-2px); }
+
+/* ── FOOTER ── */
+footer.wordmark-footer {
+  background: var(--bg);
+  padding: 40px 52px 40px;
+}
+.wordmark-inner { max-width: 1100px; margin: 0 auto; }
+.wordmark {
+  font-family: var(--serif);
+  font-size: clamp(96px, 18vw, 224px);
+  font-weight: 400;
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+.wordmark .dot-italic { font-style: italic; color: var(--accent); }
+.wordmark-tag {
+  margin-top: 24px; max-width: 520px;
+  color: var(--ink3); font-size: 15px; line-height: 1.7; font-weight: 300;
+}
+.wordmark-links {
+  margin-top: 36px;
+  display: flex; flex-wrap: wrap; gap: 24px; font-size: 14px;
+}
+.wordmark-links a {
+  color: var(--ink); text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: oklch(82% 0.028 70);
+  transition: text-decoration-color 0.2s;
+}
+.wordmark-links a:hover { text-decoration-color: var(--ink); }
+.wordmark-base {
+  margin-top: 36px; padding-top: 22px;
+  border-top: 1px solid oklch(88% 0.025 72);
+  display: flex; flex-wrap: wrap; justify-content: space-between;
+  gap: 12px; font-size: 13px; color: var(--ink3);
+}
+
+/* ── TWEAKS PANEL ── */
+#tweaks-panel {
+  display: none;
+  position: fixed; bottom: 24px; right: 24px; z-index: 999;
+  background: var(--bg); border-radius: 16px;
+  padding: 20px; width: 240px;
+  box-shadow: 0 8px 40px oklch(16% 0.028 55 / 0.18);
+  border: 1px solid oklch(88% 0.025 72);
+  font-family: var(--sans);
+}
+#tweaks-panel h4 {
+  font-size: 11px; font-weight: 600; color: var(--ink);
+  margin-bottom: 16px; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.tweak-row { margin-bottom: 14px; }
+.tweak-row label { font-size: 12px; color: var(--ink2); display: block; margin-bottom: 6px; }
+.tweak-row select {
+  width: 100%; font-family: var(--sans); font-size: 13px;
+  border: 1px solid oklch(86% 0.025 72); border-radius: 8px;
+  padding: 7px 10px; color: var(--ink); background: var(--bg2); outline: none;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { opacity: 0; animation: fadeUp 0.75s ease forwards; }
+.d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.25s; }
+.d3 { animation-delay: 0.4s; } .d4 { animation-delay: 0.55s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .social-sidebar { display: none; }
+  #hero, .section-wrap { padding-left: 24px; padding-right: 24px; }
+  .about-grid, .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+  .exp-row, .edu-row { grid-template-columns: 1fr; gap: 4px; }
+  .exp-period, .edu-period { text-align: left; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .divider { margin: 0 24px; }
+  footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="site-header">
+  <nav>
+    <a href="#hero" class="nav-link home">Home</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#projects" class="nav-link">Work</a>
+    <a href="#experience" class="nav-link">CV</a>
+    <a href="#contact-section" class="nav-cta" onclick="scrollToContactEnd(event)">Contact</a>
+  </nav>
+</header>
+
+<!-- SOCIAL SIDEBAR -->
+<div class="social-sidebar">
+  <a href="https://linkedin.com/in/piknahultuk" target="_blank" title="LinkedIn">in</a>
+  <div class="social-line"></div>
+  <a href="https://github.com/piknahultuk" target="_blank" title="GitHub">gh</a>
+  <div class="social-line"></div>
+  <a href="mailto:kipkutluhan@gmail.com" title="Email">@</a>
+</div>
+
+<!-- HERO -->
+<section id="hero" style="max-width:1100px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 52px 80px;position:relative;">
+  <div class="hero-tag fade-up d1">
+    <span class="hero-tag-dot"></span>
+    Open to opportunities · Istanbul, Turkey
+  </div>
+
+  <div class="hero-headline fade-up d2">
+    <div class="hero-line">
+      <span class="muted">Hey, I'm</span>
+      <!-- Avatar photo -->
+      <span class="float-capsule avatar" style="border-color: oklch(82% 0.028 70);">
+        <img src="assets/1748237916548.jpeg" alt="Kutluhan Kip" style="width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:grayscale(10%);" />
+      </span>
+      <span>Kutluhan.</span>
+    </div>
+
+    <div class="hero-line" style="margin-top:8px;">
+      <span class="hero-accent">Designer</span>
+      <!-- Canvas / design tool capsule -->
+      <span class="float-capsule wide" style="position:relative;top:-2px;">
+        <svg viewBox="0 0 160 88" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="display:block;">
+          <defs>
+            <linearGradient id="pf-canvas-bg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#FBF7EF"/>
+              <stop offset="1" stop-color="#F0E8D8"/>
+            </linearGradient>
+            <linearGradient id="pf-shape-orb" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#FDE68A"/>
+              <stop offset=".5" stop-color="#F472B6"/>
+              <stop offset="1" stop-color="#7C3AED"/>
+            </linearGradient>
+            <linearGradient id="pf-shape-sq" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#22D3EE"/>
+              <stop offset="1" stop-color="#3B82F6"/>
+            </linearGradient>
+          </defs>
+          <rect width="160" height="88" fill="url(#pf-canvas-bg)"/>
+          <g fill="#0A0A0A" opacity=".08">
+            <circle cx="16" cy="18" r=".8"/><circle cx="32" cy="18" r=".8"/><circle cx="48" cy="18" r=".8"/><circle cx="64" cy="18" r=".8"/><circle cx="80" cy="18" r=".8"/><circle cx="96" cy="18" r=".8"/><circle cx="112" cy="18" r=".8"/><circle cx="128" cy="18" r=".8"/><circle cx="144" cy="18" r=".8"/>
+            <circle cx="16" cy="36" r=".8"/><circle cx="32" cy="36" r=".8"/><circle cx="48" cy="36" r=".8"/><circle cx="64" cy="36" r=".8"/><circle cx="80" cy="36" r=".8"/><circle cx="96" cy="36" r=".8"/><circle cx="112" cy="36" r=".8"/><circle cx="128" cy="36" r=".8"/><circle cx="144" cy="36" r=".8"/>
+            <circle cx="16" cy="54" r=".8"/><circle cx="32" cy="54" r=".8"/><circle cx="48" cy="54" r=".8"/><circle cx="64" cy="54" r=".8"/><circle cx="80" cy="54" r=".8"/><circle cx="96" cy="54" r=".8"/><circle cx="112" cy="54" r=".8"/><circle cx="128" cy="54" r=".8"/><circle cx="144" cy="54" r=".8"/>
+            <circle cx="16" cy="72" r=".8"/><circle cx="32" cy="72" r=".8"/><circle cx="48" cy="72" r=".8"/><circle cx="64" cy="72" r=".8"/><circle cx="80" cy="72" r=".8"/><circle cx="96" cy="72" r=".8"/><circle cx="112" cy="72" r=".8"/><circle cx="128" cy="72" r=".8"/><circle cx="144" cy="72" r=".8"/>
+          </g>
+          <circle cx="58" cy="48" r="22" fill="url(#pf-shape-orb)"/>
+          <rect x="86" y="26" width="30" height="30" rx="6" fill="url(#pf-shape-sq)"/>
+          <g fill="#0A0A0A">
+            <rect x="84" y="24" width="3" height="3"/><rect x="115" y="24" width="3" height="3"/>
+            <rect x="84" y="55" width="3" height="3"/><rect x="115" y="55" width="3" height="3"/>
+          </g>
+          <text x="96" y="74" font-family="Playfair Display, Georgia, serif" font-size="22" font-style="italic" fill="#0A0A0A">Aa</text>
+          <g>
+            <circle cx="138" cy="66" r="6" fill="#0A0A0A"/>
+            <circle cx="128" cy="72" r="6" fill="#F472B6"/>
+            <circle cx="138" cy="78" r="6" fill="#FDE68A"/>
+            <circle cx="148" cy="72" r="6" fill="#22D3EE"/>
+          </g>
+          <g transform="translate(68 62)">
+            <path d="M0 0 L0 12 L3.4 9.2 L5.6 14 L8 13 L5.8 8.2 L10.4 7.6 Z" fill="#0A0A0A" stroke="#fff" stroke-width=".8" stroke-linejoin="round"/>
+          </g>
+        </svg>
+      </span>
+      <span style="color:var(--ink)">&amp; Developer</span>
+    </div>
+
+    <div class="hero-line" style="margin-top:8px;">
+      <span class="muted">Based in</span>
+      <!-- Istanbul / Hagia Sophia capsule -->
+      <span class="float-capsule square" style="border-radius:20px;">
+        <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Sky gradient bg -->
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="oklch(62% 0.09 230)"/>
+              <stop offset="100%" stop-color="oklch(80% 0.06 60)"/>
+            </linearGradient>
+            <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="oklch(55% 0.08 220)"/>
+              <stop offset="100%" stop-color="oklch(45% 0.07 220)"/>
+            </linearGradient>
+          </defs>
+          <rect width="72" height="72" fill="url(#sky)"/>
+          <!-- water reflection -->
+          <rect x="0" y="54" width="72" height="18" fill="url(#water)" opacity="0.7"/>
+          <!-- Hagia Sophia silhouette -->
+          <!-- main dome base -->
+          <rect x="16" y="38" width="40" height="16" rx="1" fill="oklch(20% 0.025 50)"/>
+          <!-- main dome -->
+          <ellipse cx="36" cy="38" rx="18" ry="11" fill="oklch(20% 0.025 50)"/>
+          <!-- half domes -->
+          <ellipse cx="20" cy="42" rx="8" ry="5" fill="oklch(22% 0.024 50)"/>
+          <ellipse cx="52" cy="42" rx="8" ry="5" fill="oklch(22% 0.024 50)"/>
+          <!-- left minaret -->
+          <rect x="13" y="20" width="4" height="28" rx="2" fill="oklch(18% 0.024 50)"/>
+          <ellipse cx="15" cy="20" rx="2.5" ry="4" fill="oklch(18% 0.024 50)"/>
+          <!-- right minaret -->
+          <rect x="55" y="20" width="4" height="28" rx="2" fill="oklch(18% 0.024 50)"/>
+          <ellipse cx="57" cy="20" rx="2.5" ry="4" fill="oklch(18% 0.024 50)"/>
+          <!-- crescent on dome -->
+          <circle cx="36" cy="28" r="3" fill="oklch(80% 0.06 70)"/>
+          <circle cx="37.8" cy="27.2" r="2.2" fill="oklch(62% 0.09 230)"/>
+          <!-- reflection -->
+          <ellipse cx="36" cy="58" rx="16" ry="4" fill="oklch(20% 0.025 50)" opacity="0.35"/>
+        </svg>
+      </span>
+      <span>Istanbul</span>
+    </div>
+  </div>
+
+  <p class="hero-sub fade-up d3">
+    I study CS, but what I really love is making things feel right. Clean interfaces, thoughtful interactions, code that becomes something people actually enjoy using — that's what gets me up in the morning.
+  </p>
+  <div class="hero-actions fade-up d4">
+    <a class="btn-pill" href="#projects">View Projects ↗</a>
+    <a class="btn-outline" href="#contact-section">Get in Touch</a>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ABOUT -->
+<div id="about" class="section-wrap">
+  <div class="section-label">About</div>
+  <h2 class="section-title">The thinking behind the work</h2>
+  <div class="about-grid">
+    <div>
+      <p class="about-text">
+        I'm a <strong>Computer Engineering student</strong> at Erciyes University working as both a <strong>designer and a developer</strong> — treating the two as one craft rather than separate disciplines. Every product I make is shaped equally by how it's built and how it feels.
+      </p>
+      <br/>
+      <p class="about-text">
+        On the <strong>design</strong> side I work with <strong>Figma, Adobe Illustrator, and Photoshop</strong>, focusing on layout, typography and interaction. On the <strong>development</strong> side I build with <strong>React, React Native, Firebase, and Node.js</strong>. Neither leads — they inform each other at every step.
+      </p>
+      <br/>
+      <p class="about-text">
+        Currently growing as a designer-developer hybrid, open to internships, collaborations, and interesting challenges.
+      </p>
+
+      <!-- Mini stat card -->
+      <div class="about-visual-card">
+        <div class="about-avatar-ring">
+          <img src="assets/1748237916548.jpeg" alt="Kutluhan" style="width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block;" />
+        </div>
+        <div>
+          <div style="font-size:14px;font-weight:500;margin-bottom:8px;">Kutluhan Kip</div>
+          <div style="font-size:12px;color:var(--ink3);">CS Student · Designer · Developer</div>
+          <div class="about-stat-row">
+            <div class="about-stat"><label>Year</label><span>2026</span></div>
+            <div class="about-stat"><label>Uni</label><span>Erciyes</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="skills-group">
+        <div class="skills-group-label">Design</div>
+        <div class="skills-tags">
+          <span class="skill-tag">Figma</span><span class="skill-tag">Adobe XD</span>
+          <span class="skill-tag">Illustrator</span><span class="skill-tag">Photoshop</span>
+          <span class="skill-tag">UI Design</span><span class="skill-tag">UX Design</span><span class="skill-tag">Prototyping</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <div class="skills-group-label">Development</div>
+        <div class="skills-tags">
+          <span class="skill-tag">HTML/CSS</span><span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">React</span><span class="skill-tag">React Native</span>
+          <span class="skill-tag">Node.js</span><span class="skill-tag">Next.js</span>
+          <span class="skill-tag">Firebase</span><span class="skill-tag">Git</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <div class="skills-group-label">Languages (Code)</div>
+        <div class="skills-tags">
+          <span class="skill-tag">Java</span><span class="skill-tag">Python</span>
+          <span class="skill-tag">C / C#</span><span class="skill-tag">SQL</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <div class="skills-group-label">Spoken</div>
+        <div class="skills-tags">
+          <span class="skill-tag">Turkish — Native</span>
+          <span class="skill-tag">English — B2</span>
+          <span class="skill-tag">Spanish — A1</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- EXPERIENCE -->
+<div id="experience" class="section-wrap">
+  <div class="section-label">Experience</div>
+  <h2 class="section-title">Where I've put my skills to work</h2>
+  <div class="exp-list">
+    <div class="exp-row">
+      <span class="exp-role">AI Trainer &amp; Data Annotator</span>
+      <span class="exp-company">Outlier AI — Remote</span>
+      <span class="exp-period">Dec 2024 – Jul 2025</span>
+    </div>
+  </div>
+  <div class="exp-desc">
+    Evaluated LLM outputs for code generation and debugging tasks, applied RLHF preference ranking across Python, JavaScript, Mathematics and Physics domains, and systematically annotated AI-generated responses against functionality, readability, and security criteria.
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- EDUCATION -->
+<div id="education" class="section-wrap">
+  <div class="section-label">Education</div>
+  <h2 class="section-title">Academic background</h2>
+  <div class="edu-list">
+    <div class="edu-row">
+      <span class="edu-degree">B.Sc. Computer Engineering</span>
+      <span class="edu-school">Erciyes University, Kayseri</span>
+      <span class="edu-period">Sept 2023 – Present</span>
+    </div>
+    <div class="edu-row">
+      <span class="edu-degree">Senior Year</span>
+      <span class="edu-school">Bilgi Kuram College, Istanbul</span>
+      <span class="edu-period">Sept 2021 – Jun 2022</span>
+    </div>
+    <div class="edu-row">
+      <span class="edu-degree">Anatolian High School</span>
+      <span class="edu-school">Şile Anatolian H.S., Istanbul</span>
+      <span class="edu-period">Sept 2018 – Jun 2021</span>
+    </div>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- PROJECTS -->
+<div id="projects" class="section-wrap">
+  <div class="section-label">Projects</div>
+  <h2 class="section-title">Things I've built</h2>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-card-top">
+        <div class="project-icon" style="padding:0;overflow:hidden;background:transparent;">
+          <img src="assets/thinker-logo.png" alt="Thinker logo" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:14px;" />
+        </div>
+        <span class="project-status">● In Progress</span>
+      </div>
+      <h3 class="project-title">Thinker (Beta)</h3>
+      <p class="project-desc">A "digital second brain" mobile app to help users capture scattered ideas and organize tasks in a distraction-free environment — built for mental clarity through a minimalist, high-performance interface.</p>
+      <div class="project-tech-tags">
+        <span class="tech-tag">React Native</span><span class="tech-tag">Firebase</span>
+        <span class="tech-tag">JavaScript</span><span class="tech-tag">Expo</span>
+        <span class="tech-tag">Firestore</span><span class="tech-tag">Auth</span>
+      </div>
+      <div class="project-meta">
+        <div class="project-meta-item"><label>Type</label><span>Mobile App</span></div>
+        <div class="project-meta-item"><label>Timeline</label><span>Dec 2025 – Now</span></div>
+        <div class="project-meta-item"><label>Platform</label><span>iOS</span></div>
+        <div class="project-meta-item"><label>Role</label><span>Solo Developer</span></div>
+      </div>
+    </div>
+
+    <div class="project-card project-placeholder">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <rect width="40" height="40" rx="10" fill="oklch(86% 0.028 70)"/>
+        <line x1="20" y1="10" x2="20" y2="30" stroke="oklch(65% 0.025 65)" stroke-width="2" stroke-linecap="round"/>
+        <line x1="10" y1="20" x2="30" y2="20" stroke="oklch(65% 0.025 65)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <p>More projects coming soon — currently in development.</p>
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- CERTIFICATIONS -->
+<div id="certifications" class="section-wrap">
+  <div class="section-label">Certifications</div>
+  <h2 class="section-title">Continuous learning</h2>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-year">Jul 2025</div>
+      <div class="cert-title">App Design with Figma</div>
+      <div class="cert-issuer">BTK Academy — ICT Authority</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-year">Jan 2024</div>
+      <div class="cert-title">Modern Web Development</div>
+      <div class="cert-issuer">Udemy · Mustafa Murat Coskun — 98.5 hrs</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-year">Jan 2024</div>
+      <div class="cert-title">AI &amp; Data Analytics 101</div>
+      <div class="cert-issuer">Akbank Youth Academy &amp; Microfon</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-year">May 2024</div>
+      <div class="cert-title">Job Simulation — Coffy Franchisee</div>
+      <div class="cert-issuer">Ludi — Real-world business simulation</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact-section">
+  <div class="contact-inner">
+    <div>
+      <div class="contact-label">Contact</div>
+      <h2 class="contact-title">Let's build something together</h2>
+      <p class="contact-sub">Whether it's a design challenge, a dev project, or just a conversation — I'm always open to connecting.</p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:kipkutluhan@gmail.com">
+          <div><span class="contact-link-label">Email</span><span class="contact-link-val">kipkutluhan@gmail.com</span></div>
+        </a>
+        <a class="contact-link" href="https://linkedin.com/in/piknahultuk" target="_blank">
+          <div><span class="contact-link-label">LinkedIn</span><span class="contact-link-val">linkedin.com/in/piknahultuk</span></div>
+        </a>
+        <a class="contact-link" href="https://github.com/piknahultuk" target="_blank">
+          <div><span class="contact-link-label">GitHub</span><span class="contact-link-val">github.com/piknahultuk</span></div>
+        </a>
+
+      </div>
+    </div>
+
+    <form class="contact-form" action="https://formspree.io/f/mnjlzoln" method="POST" onsubmit="handleSubmit(event)">
+      <div class="form-group">
+        <label class="form-label" for="cf-name">Full Name</label>
+        <input id="cf-name" class="form-input" type="text" name="name" placeholder="Your name" required />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="cf-email">Email Address</label>
+        <input id="cf-email" class="form-input" type="email" name="email" placeholder="your@email.com" required />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="cf-subject">Subject</label>
+        <input id="cf-subject" class="form-input" type="text" name="subject" placeholder="Regarding..." />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="cf-message">Message</label>
+        <textarea id="cf-message" class="form-input" name="message" placeholder="Tell me more..." required></textarea>
+      </div>
+      <!-- Honeypot (spam protection) -->
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+      <button type="submit" class="form-submit" id="submit-btn">
+        Send Message ↗
+      </button>
+    </form>
+  </div>
+</div>
+
+<footer class="wordmark-footer">
+  <div class="wordmark-inner">
+    <h3 class="wordmark">Kutluhan<span class="dot-italic">.</span></h3>
+    <p class="wordmark-tag">Thank you for stopping by.</p>
+    <div class="wordmark-base">
+      <span>© 2026 Kutluhan Kip. All rights reserved.</span>
+      <span>Designed &amp; built by <a href="https://linkedin.com/in/piknahultuk" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-color:oklch(82% 0.028 70);">piknahultuk</a>.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- TWEAKS -->
+<div id="tweaks-panel">
+  <h4>Tweaks</h4>
+  <div class="tweak-row">
+    <label>Color Tone</label>
+    <select onchange="applyTone(this.value)">
+      <option value="warm">Warm Ivory (default)</option>
+      <option value="stone">Cool Stone</option>
+      <option value="sage">Sage Green</option>
+      <option value="slate">Dark Slate</option>
+    </select>
+  </div>
+  <div class="tweak-row">
+    <label>Accent Color</label>
+    <select onchange="applyAccent(this.value)">
+      <option value="terracotta">Terracotta (default)</option>
+      <option value="indigo">Indigo</option>
+      <option value="forest">Forest Green</option>
+      <option value="gold">Warm Gold</option>
+    </select>
+  </div>
+  <div class="tweak-row">
+    <label>Font Pairing</label>
+    <select onchange="applyFont(this.value)">
+      <option value="playfair">Playfair Display</option>
+      <option value="cormorant">Cormorant Garamond</option>
+      <option value="lora">Lora</option>
+    </select>
+  </div>
+</div>
+
+<script>
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "tone": "warm",
+    "accent": "forest",
+    "font": "playfair",
+    "bg": "cool"
+  }/*EDITMODE-END*/;
+
+  window.addEventListener('message', (e) => {
+    if (e.data?.type === '__activate_edit_mode')   document.getElementById('tweaks-panel').style.display = 'block';
+    if (e.data?.type === '__deactivate_edit_mode') document.getElementById('tweaks-panel').style.display = 'none';
+  });
+  window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+
+  function applyTone(v) {
+    const r = document.documentElement.style;
+    const tones = {
+      warm:  ['97.2% 0.018 75','94.5% 0.022 75','91% 0.028 72','16% 0.028 55','88% 0.025 72'],
+      stone: ['97% 0.008 240','94% 0.010 240','91% 0.012 240','14% 0.015 240','88% 0.010 240'],
+      sage:  ['97% 0.016 155','94% 0.020 155','91% 0.025 150','14% 0.025 155','88% 0.020 155'],
+      slate: ['97% 0.010 210','94% 0.012 210','90% 0.016 210','14% 0.020 220','87% 0.012 210'],
+    };
+    const t = tones[v] || tones.warm;
+    r.setProperty('--bg',  `oklch(${t[0]})`);
+    r.setProperty('--bg2', `oklch(${t[1]})`);
+    r.setProperty('--bg3', `oklch(${t[2]})`);
+    r.setProperty('--ink', `oklch(${t[3]})`);
+    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { tone: v } }, '*');
+  }
+
+  function applyAccent(v) {
+    const accents = {
+      terracotta: '56% 0.14 45',
+      indigo:     '52% 0.18 270',
+      forest:     '50% 0.14 155',
+      gold:       '65% 0.14 78',
+    };
+    document.documentElement.style.setProperty('--accent', `oklch(${accents[v] || accents.terracotta})`);
+    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { accent: v } }, '*');
+  }
+
+  function applyFont(v) {
+    const fonts = {
+      playfair:  "'Playfair Display', Georgia, serif",
+      cormorant: "'Cormorant Garamond', Georgia, serif",
+      lora:      "'Lora', Georgia, serif",
+    };
+    document.documentElement.style.setProperty('--serif', fonts[v] || fonts.playfair);
+    if (v === 'cormorant') injectFont('Cormorant+Garamond:ital,wght@0,400;0,500;0,700;1,400');
+    if (v === 'lora') injectFont('Lora:ital,wght@0,400;0,500;0,700;1,400');
+    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { font: v } }, '*');
+  }
+
+  function injectFont(name) {
+    if (!document.querySelector(`link[data-f="${name}"]`)) {
+      const l = document.createElement('link');
+      l.rel = 'stylesheet';
+      l.href = `https://fonts.googleapis.com/css2?family=${name}&display=swap`;
+      l.dataset.f = name;
+      document.head.appendChild(l);
+    }
+  }
+
+  function scrollToContactEnd(e) {
+    e.preventDefault();
+    const el = document.getElementById('contact-section');
+    if (!el) return;
+    const target = el.offsetTop + el.offsetHeight - window.innerHeight;
+    window.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = document.getElementById('submit-btn');
+    const originalText = 'Send Message ↗';
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    btn.style.opacity = '0.8';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' },
+      });
+
+      if (res.ok) {
+        btn.textContent = 'Message sent ✓';
+        btn.style.background = 'oklch(55% 0.12 155)';
+        btn.style.color = 'white';
+        form.reset();
+      } else {
+        const data = await res.json().catch(() => ({}));
+        const msg = data?.errors?.[0]?.message || 'Something went wrong';
+        btn.textContent = msg;
+        btn.style.background = 'oklch(55% 0.15 25)';
+        btn.style.color = 'white';
+      }
+    } catch (err) {
+      btn.textContent = 'Network error — try email';
+      btn.style.background = 'oklch(55% 0.15 25)';
+      btn.style.color = 'white';
+    } finally {
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.style.opacity = '';
+      }, 3500);
+    }
+  }
+
+  // Scroll-triggered fade in
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.style.opacity = '1';
+        el.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.exp-row,.edu-row,.cert-card,.project-card,.skills-group').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(14px)';
+    el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
