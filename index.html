@@ -326,7 +326,20 @@ header.site-header nav {
   text-transform: uppercase; color: var(--accent);
   background: oklch(56% 0.14 45 / 0.10); border-radius: 100px;
   padding: 4px 12px;
+  display: inline-flex; align-items: center; gap: 6px;
 }
+.status-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: currentColor;
+  display: inline-block;
+  animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+  0% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 currentColor; }
+  70% { transform: scale(1); opacity: 0.7; box-shadow: 0 0 0 4px transparent; }
+  100% { transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 transparent; }
+}
+.project-card.is-link { cursor: pointer; }
 .project-title {
   font-family: var(--serif); font-size: 27px; font-weight: 500;
   letter-spacing: -0.02em; margin-bottom: 10px;
@@ -787,6 +800,31 @@ footer.wordmark-footer {
   <h2 class="section-title">Things I've built</h2>
   <div class="projects-grid">
 
+    <a href="https://apps.apple.com/us/app/absence-track-your-attendance/id6765491392" target="_blank" class="project-card is-link" style="text-decoration:none; color:inherit; display:block;">
+      <div class="project-card-top">
+        <div class="project-icon" style="padding:0;overflow:hidden;background:transparent;">
+          <img src="assets/absence-logo.png" alt="Absence logo" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:14px;" />
+        </div>
+        <span class="project-status" style="background:oklch(55% 0.12 155 / 0.10); color:oklch(55% 0.12 155);">
+          <span class="status-dot"></span>
+          Live on App Store
+        </span>
+      </div>
+      <h3 class="project-title">Absence</h3>
+      <p class="project-desc">A professional attendance and absence tracking application that helps students and professionals stay organized with smart reminders and a seamless, intuitive interface.</p>
+      <div class="project-tech-tags">
+        <span class="tech-tag">React Native</span><span class="tech-tag">Firebase</span>
+        <span class="tech-tag">Expo</span><span class="tech-tag">Firestore</span>
+        <span class="tech-tag">Cloud Functions</span>
+      </div>
+      <div class="project-meta">
+        <div class="project-meta-item"><label>Type</label><span>Mobile App</span></div>
+        <div class="project-meta-item"><label>Timeline</label><span>April 2026 - Now</span></div>
+        <div class="project-meta-item"><label>Platform</label><span>iOS</span></div>
+        <div class="project-meta-item"><label>Role</label><span>Solo Developer</span></div>
+      </div>
+    </a>
+
     <div class="project-card">
       <div class="project-card-top">
         <div class="project-icon" style="padding:0;overflow:hidden;background:transparent;">
@@ -807,15 +845,6 @@ footer.wordmark-footer {
         <div class="project-meta-item"><label>Platform</label><span>iOS</span></div>
         <div class="project-meta-item"><label>Role</label><span>Solo Developer</span></div>
       </div>
-    </div>
-
-    <div class="project-card project-placeholder">
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <rect width="40" height="40" rx="10" fill="oklch(86% 0.028 70)"/>
-        <line x1="20" y1="10" x2="20" y2="30" stroke="oklch(65% 0.025 65)" stroke-width="2" stroke-linecap="round"/>
-        <line x1="10" y1="20" x2="30" y2="20" stroke="oklch(65% 0.025 65)" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-      <p>More projects coming soon — currently in development.</p>
     </div>
 
   </div>
